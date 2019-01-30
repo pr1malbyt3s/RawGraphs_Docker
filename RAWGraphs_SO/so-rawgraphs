@@ -1,0 +1,14 @@
+#Script that represents the "binary" for rawgraphs to be used as a service.
+
+#!/bin/bash
+
+#Make sure no other container is running as rawgraphs.
+docker stop rawgraphs > /dev/null 2>&1
+docker rm rawgraphs > /dev/null 2>&1
+
+#Start the container using the image id.
+docker run --name=rawgraphs --volume /var/www/so/rawgraphs/:/raw/: -d pr1malbyt3s/rawgraphs_so
+sleep 2
+
+#Ensure proper directory location for access via the apache proxy.
+docker exec -it rawgraphs bash -c "cd /raw"

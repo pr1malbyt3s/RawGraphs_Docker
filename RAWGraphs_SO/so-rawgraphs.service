@@ -1,0 +1,12 @@
+[Unit]
+Description=SO-Rawgraphs Service
+After=docker.service apache2.service.d
+Requires=docker.service apache2.service.d
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStart=/bin/bash /usr/sbin/so-rawgraphs
+
+[Install]
+WantedBy=multi-user.target

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b27d3269ca50e8186b56b5e10f491659dbfa460
 FROM ubuntu:16.04
 RUN apt-get -qq update && apt-get install --no-install-recommends -y python-pip python-dev npm git
 RUN npm install -g bower
